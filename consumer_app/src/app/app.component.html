@@ -1,0 +1,132 @@
+<section class="hero is-medium is-info is-bold">
+<!--  <div class="hero-body">-->
+    <div class="container">
+      <h2 class="title is-1">
+        UMNI Pricing Module
+      </h2>
+    </div>
+</section>
+
+
+
+
+<section class="container">
+<div class="container">
+<h1>{{title}}</h1>
+<nav>
+    <div class="grid grid-pad">
+      <div class="container">
+        <br>
+    <!--  <a routerLink="/dashboard">Dashboard</a> -->
+    <!--  <a routerLink="/ask">Search</a> -->
+    <!--  <a routerLink="/dashboard">My Items</a> -->
+    </div>
+      <!-- <a routerLink="/bids">Bids</a> -->
+    </div>
+</nav>
+<br>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+</div>
+</section>
+
+<!--
+<div class="container">
+<div id="search" class="margin-right">
+  <h4>Item Search</h4>
+  <input class="searchBox" #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
+-->
+
+<br>
+<div class="container">
+  <h1 class="title">Send Bid{{hero.name}}</h1>
+  <h1 class="title is-4 is-info help">{{status}}</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Bid</label>
+      <p class="control">
+        <input
+          [(ngModel)]="sendingAmount"
+          class="input"
+          type="text"
+          placeholder="Enter your bid here"
+          name="sendingAmount"
+          required
+          #sendingAmountModel="ngModel">
+      </p>
+      <div *ngIf="sendingAmountModel.errors && (sendingAmountModel.dirty || sendingAmountModel.touched)"
+           class="help is-danger">
+          <p [hidden]="!sendingAmountModel.errors.required">
+            This field is required
+          </p>
+      </div>
+      <div *ngIf="!sendingAmountModel.errors && (sendingAmountModel.dirty || sendingAmountModel.touched)"
+           class="help is-danger">
+          <p [hidden]="canBeNumber(sendingAmount)">
+            Must be a number
+          </p>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">To Address</label>
+      <p class="control">
+        <input
+          [(ngModel)]="recipientAddress"
+          name="recipientAddress"
+          class="input"
+          type="text"
+          placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+          name="recipientAddress"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+      <div *ngIf="recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+          <p [hidden]="!recipientAddressModel.errors.required">
+            This field is required
+          </p>
+      </div>
+      <div *ngIf="!recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+          <p [hidden]="canBeNumber(recipientAddress)">
+            Must be a number
+          </p>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="coinForm.valid"
+          (click)="clickMethod()"
+          class="button is-primary">
+          Send
+        </button>
+        <button
+          [disabled]="coinForm.valid"
+          (click)="goBack()"
+          class="button is-secondary">
+          Back
+        </button>
+      </p>
+    </div>
+  </form>
+
+
+<!--
+  <strong>Hint:</strong> open the browser developer console to view any errors and warnings.
+-->
+
+<!-- </div> -->
