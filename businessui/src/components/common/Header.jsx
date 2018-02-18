@@ -46,10 +46,12 @@ export default class NewHeader extends React.Component {
     </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <NavItem eventKey={1} href='/history'>Home</NavItem>
+      <NavItem eventKey={1} href='/'>Home</NavItem>
       <NavItem eventKey={2} href='/sell'>Sell Products</NavItem>
       <NavItem eventKey={3} href='/analyitcs'>Analytics</NavItem>
       <NavItem eventKey={4} href='/about'>About</NavItem>
+      <NavItem eventKey={5} href='/history'>History</NavItem>
+
     </Nav>
   </Navbar>
      </div>

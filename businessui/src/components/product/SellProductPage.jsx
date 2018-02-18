@@ -5,8 +5,9 @@ import Web3 from 'web3'
 import CheckIfMetaMask from '../common/CheckIfMetaMask';
 import Error from '../common/Error';
 import GenericItemForm from './GenericItemForm.jsx';
+import { withGlobalState } from 'react-globally'
 
-export default class SellProductPage extends React.Component {
+class SellProductPage extends React.Component {
     
   constructor(props) {
       super(props)
@@ -94,3 +95,4 @@ export default class SellProductPage extends React.Component {
     );
   }
 }
+export default withGlobalState(SellProductPage)

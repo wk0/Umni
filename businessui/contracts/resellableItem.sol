@@ -1,8 +1,9 @@
 pragma solidity ^0.4.0;
 
-import './hype-BaseItem.sol';
+// VERY INCOMPLETE!
 
-// NOT COMPLETE
+import './baseItem.sol';
+
 
 contract Transferable is BaseItem {
     enum State {PRIMARY_MARKET, SETTLE, SECONDARY_MARKET, REDEEMED}
