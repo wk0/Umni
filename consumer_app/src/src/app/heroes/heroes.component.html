@@ -1,0 +1,11 @@
+<h2>My Watchlist</h2>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete item"
+    (click)="delete(hero)">x</button>
+  </li>
+</ul>

@@ -1,0 +1,131 @@
+<div class="row" *ngIf="hero">
+  <h2 class="title">{{ hero.name | uppercase }} <br> </h2>
+  <!-- <div><span>id: </span>{{hero.id}}</div> -->
+        <!-- <input [(ngModel)]="hero.name" placeholder="name"/> -->
+
+
+    <div>
+    <img src="https://tinyurl.com/y9bfu8lp" width="40%" height="40%">
+    </div>
+
+
+<br>
+<table style="width:95%" border="2">
+<!--
+      <p>{{hero.name}}</p>
+      <label>Details</label>
+      <p>{{hero.desc}}</p>
+      <label>Current Average Price</label>
+      <p>{{hero.price}}</p>
+      <label>Quantity</label>
+      <p>{{hero.qt}}</p>
+-->
+        <tr>
+          <th>Name</th>
+          <th>Details</th>
+          <th>Address</th>
+          <th>Suggested Purchase Price</th>
+          <th>Manufacturer Suggested Retail Price</th>
+          <th>Quantity</th>
+        </tr>
+        <tr>
+          <td>{{hero.name}}</td>
+          <td>{{hero.desc}}</td>
+          <td>0x165f31c4b25F227e1Baa88Ed96B927Fd52964592</td>
+          <td>{{hero.price}}</td>
+          <td>{{hero.msrp}}</td>
+          <td>{{hero.qt}}</td>
+        </tr>
+      </table>
+
+
+  <div class="col-md-8">
+  <button (click)="goBack()">go back</button>
+  <!--<button (click)="bid()">bid</button>-->
+  <button (click)="redeem()">redeem</button>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+  <h1 class="title">Send Bid</h1>
+  <h1 class="title is-4 is-info help">{{status}}</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Bid</label>
+      <p class="control">
+        <input
+          [(ngModel)]="sendingAmount"
+          class="input"
+          type="text"
+          placeholder="Enter your bid here"
+          name="sendingAmount"
+          required
+          #sendingAmountModel="ngModel">
+      </p>
+      <div *ngIf="sendingAmountModel.errors && (sendingAmountModel.dirty || sendingAmountModel.touched)"
+           class="help is-danger">
+          <p [hidden]="!sendingAmountModel.errors.required">
+            This field is required
+          </p>
+      </div>
+      <div *ngIf="!sendingAmountModel.errors && (sendingAmountModel.dirty || sendingAmountModel.touched)"
+           class="help is-danger">
+          <p [hidden]="canBeNumber(sendingAmount)">
+            Must be a number
+          </p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">To Address</label>
+      <p class="control">
+        <input
+          [(ngModel)]="recipientAddress"
+          name="recipientAddress"
+          class="input"
+          type="text"
+          placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+          name="recipientAddress"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+      <div *ngIf="recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+          <p [hidden]="!recipientAddressModel.errors.required">
+            This field is required
+          </p>
+      </div>
+      <div *ngIf="!recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+          <p [hidden]="canBeNumber(recipientAddress)">
+            Must be a number
+          </p>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="coinForm.valid"
+          (click)="clickMethod()"
+          class="button is-primary">
+          Send
+        </button>
+        <button
+          [disabled]="coinForm.valid"
+          (click)="goBack()"
+          class="button is-secondary">
+          Back
+        </button>
+      </p>
+    </div>
+  </form>
+
+
+
+</div>

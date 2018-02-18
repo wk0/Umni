@@ -1,0 +1,58 @@
+<section class="hero is-medium is-info is-bold">
+<!--  <div class="hero-body">-->
+    <div class="container">
+      <h2 class="title is-1">
+        UMNI Pricing Module
+      </h2>
+    </div>
+</section>
+
+
+
+
+<section class="container">
+<div class="container">
+<h1>{{title}}</h1>
+<nav>
+    <div class="grid grid-pad">
+      <div class="container">
+        <br>
+    <!--  <a routerLink="/dashboard">Dashboard</a> -->
+    <!--  <a routerLink="/ask">Search</a> -->
+    <!--  <a routerLink="/dashboard">My Items</a> -->
+    </div>
+      <!-- <a routerLink="/bids">Bids</a> -->
+    </div>
+</nav>
+<br>
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+</div>
+</section>
+
+<!--
+<div class="container">
+<div id="search" class="margin-right">
+  <h4>Item Search</h4>
+  <input class="searchBox" #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let hero of heroes$ | async" >
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
+-->
+
+<br>
+
+
+
+<!--
+  <strong>Hint:</strong> open the browser developer console to view any errors and warnings.
+-->
+
+<!-- </div> -->
