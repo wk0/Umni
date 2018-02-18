@@ -1,0 +1,27 @@
+<div class="row" *ngIf="hero">
+  <h2 class="title">{{ hero.name | uppercase }} <br> </h2>
+  <!-- <div><span>id: </span>{{hero.id}}</div> -->
+    <label>Item
+      <!-- <input [(ngModel)]="hero.name" placeholder="name"/> -->
+    </label>
+
+    <div class="col-md-4">
+    <img src="https://tinyurl.com/ybktfzsu">
+    </div>
+
+      <p>{{hero.name}}</p>
+      <label>Details</label>
+      <p>{{hero.desc}}</p>
+      <label>Current Average Price</label>
+      <p>{{hero.price}}</p>
+      <label>Quantity</label>
+      <p>{{hero.qt}}</p>
+
+
+  <div class="col-md-8">
+  <button (click)="goBack()">go back</button>
+  <button (click)="bid()">bid</button>
+  <button (click)="redeem()">redeem</button>
+</div>
+
+</div>

@@ -8,6 +8,7 @@ contract Factory {
     address[] public itemContracts;
     bool public createdBatch = false;
     address public owner;
+    uint256 i = 0;
 
     event MadeBatch(address[] itemContracts);
 
@@ -31,9 +32,11 @@ contract Factory {
     // Create <quantity> items
     function createBatch (uint quantity, string name, uint bid, uint durationMinutes, address trustedRedeemer, address payout) public ownerOnly {
         require(!createdBatch); // enforces one Factory one batch for simplicity
-        for(uint i = 0; i < quantity; i++){
+        require(quantity > 0);
+        
+        for(i; i < quantity; i++){
             address newItem = new BaseItem(name, bid, durationMinutes, trustedRedeemer, payout);
-            itemContracts.push(newItem);    
+            itemContracts.push(newItem);
         } 
         
         createdBatch = true;
