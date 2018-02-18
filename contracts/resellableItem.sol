@@ -4,6 +4,7 @@ pragma solidity ^0.4.0;
 
 import './baseItem.sol';
 
+
 contract Transferable is BaseItem {
     enum State {PRIMARY_MARKET, SETTLE, SECONDARY_MARKET, REDEEMED}
     State public currentState; // defaults to first enum

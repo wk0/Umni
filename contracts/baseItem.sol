@@ -12,6 +12,8 @@ contract BaseItem is Withdrawable {
     bool public redeemed; // has been redeemed for good or service
     uint public auctionEnd; // in minutes from initialization
     bool public auctionEnded;
+    
+    string public name;
 
     event BidAccepted(address highBidder, uint bid);
     event ItemRedeemed(address highBidder, uint bid, address trustedRedeemer);
@@ -23,12 +25,13 @@ contract BaseItem is Withdrawable {
     }
     
     // Constructor, issuer sets minimum price via bid
-    function BaseItem(uint _bid, uint _durationMinutes, address _trustedRedeemer, address _payout) public{
+    function BaseItem(string _name, uint _bid, uint _durationMinutes, address _trustedRedeemer, address _payout) public{
         issuer = msg.sender;
         // in Constructor sets minimum price / starting bid
         bid = _bid;
         trustedRedeemer = _trustedRedeemer;
         payout = _payout;
+        name = _name;
         
         auctionEnd = now + (_durationMinutes * 1 minutes);
     }

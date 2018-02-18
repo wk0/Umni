@@ -5,9 +5,9 @@ import './lookup.sol';
 
 contract Factory {
     // for now, one factory, one batch for simplicity
-    address[] itemContracts;
-    bool createdBatch = false;
-    address owner;
+    address[] public itemContracts;
+    bool public createdBatch = false;
+    address public owner;
 
     event MadeBatch(address[] itemContracts);
 
@@ -29,10 +29,10 @@ contract Factory {
     }
 
     // Create <quantity> items
-    function createBatch (uint quantity, uint bid, uint durationMinutes, address trustedRedeemer, address payout) public ownerOnly {
+    function createBatch (uint quantity, string name, uint bid, uint durationMinutes, address trustedRedeemer, address payout) public ownerOnly {
         require(!createdBatch); // enforces one Factory one batch for simplicity
         for(uint i = 0; i < quantity; i++){
-            address newItem = new BaseItem(bid, durationMinutes, trustedRedeemer, payout);
+            address newItem = new BaseItem(name, bid, durationMinutes, trustedRedeemer, payout);
             itemContracts.push(newItem);    
         } 
         
